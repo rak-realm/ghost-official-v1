@@ -1,7 +1,7 @@
 <!-- GHOST-OFFICIAL-V1 README -->
 <div align="center">
 
-<img src="https://i.ibb.co/7Q3y4zH/ghost-anime-banner.png" alt="Anime Ghost Banner" width="600">
+<img src="https://i.ibb.co/3F3y4zH/ghost-anime-banner.png" alt="Anime Ghost Banner" width="600">
 
 > **An advanced, futuristic WhatsApp bot by RAK for the RAK Realm ecosystem**
 
@@ -13,7 +13,7 @@
 [![GitHub issues](https://img.shields.io/badge/Issues-Open-ff7de3?logo=github)](https://github.com/rak-realm/ghost-official-v1/issues)
 [![GitHub forks](https://img.shields.io/badge/Forks-Join!-79d6ff?logo=github)](https://github.com/rak-realm/ghost-official-v1/network)
 [![GitHub stars](https://img.shields.io/badge/Stars-Like!-ffdd66?logo=github)](https://github.com/rak-realm/ghost-official-v1/stargazers)
-[![Visitors](https://img.shields.io/badge/Visitors-✨%200%20k-9cf?logo=eyeem)](https://github.com/rak-realm/ghost-official-v1)
+[![Visitors](https://profile-counter.glitch.me/rak-realm-ghost/count.svg)](https://github.com/rak-realm/ghost-official-v1)
 
 <img src="https://readme-typing-svg.herokuapp.com?font=Anime+Ace&size=25&duration=4000&color=FF7EE3&center=true&vCenter=true&width=500&lines=Welcome+to+GHOST+OFFICIAL+V1;Your+Anime+WhatsApp+Companion;Powered+by+RAK+Realm;Kawaii+Design+✨" alt="Typing SVG" />
 
@@ -23,7 +23,7 @@
 
 <div align="center">
   
-<img src="https://i.ibb.co/6r2B0V3/anime-ghost.gif" alt="Anime Ghost Girl" width="200">
+![Anime Ghost](https://i.imgur.com/6r2B0V3.gif)
 
 </div>
 
@@ -61,12 +61,12 @@
   
 | Theme | Anime Preview | Description | Command |
 |-------|---------|-------------|---------|
-| **RAK** | <img src="https://i.ibb.co/0Q8L0y0/rak-anime.png" width="100" /> | Default futuristic style | `/theme RAK` |
-| **GHOST** | <img src="https://i.ibb.co/6r2B0V3/anime-ghost.gif" width="100" /> | Sleek minimalist design | `/theme GHOST` |
-| **ROYAL** | <img src="https://i.ibb.co/8XqLQzN/royal-anime.png" width="100" /> | Luxurious gold theme | `/theme ROYAL` |
-| **LOVE** | <img src="https://i.ibb.co/6YK7R2C/love-anime.png" width="100" /> | Beautiful warm theme | `/theme LOVE` |
-| **NEON** | <img src="https://i.ibb.co/0jqWq1Z/neon-anime.png" width="100" /> | Vibrant cyberpunk style | `/theme NEON` |
-| **GALAXY** | <img src="https://i.ibb.co/7Q3y4zH/galaxy-anime.png" width="100" /> | Cosmic space theme | `/theme GALAXY` |
+| **RAK** | <img src="https://i.imgur.com/0Q8L0y0.png" width="100" /> | Default futuristic style | `/theme RAK` |
+| **GHOST** | <img src="https://i.imgur.com/6r2B0V3.gif" width="100" /> | Sleek minimalist design | `/theme GHOST` |
+| **ROYAL** | <img src="https://i.imgur.com/8XqLQzN.png" width="100" /> | Luxurious gold theme | `/theme ROYAL` |
+| **LOVE** | <img src="https://i.imgur.com/6YK7R2C.png" width="100" /> | Beautiful warm theme | `/theme LOVE` |
+| **NEON** | <img src="https://i.imgur.com/0jqWq1Z.png" width="100" /> | Vibrant cyberpunk style | `/theme NEON` |
+| **GALAXY** | <img src="https://i.imgur.com/7Q3y4zH.png" width="100" /> | Cosmic space theme | `/theme GALAXY` |
 
 </div>
 
@@ -74,7 +74,7 @@
 
 <div align="center">
 
-<img src="https://i.ibb.co/0Q8L0y0/security-anime.png" alt="Anime Security" width="150">
+<img src="https://i.imgur.com/0Q8L0y0.png" alt="Anime Security" width="150">
 
 </div>
 
