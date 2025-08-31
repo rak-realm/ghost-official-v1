@@ -1,7 +1,9 @@
 <!-- GHOST-OFFICIAL-V1 README -->
 <div align="center">
 
-<img src="https://i.ibb.co/7Q3y4zH/ghost-anime-banner.png" alt="Anime Ghost Banner" width="600">
+  <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/59059d9d1a2c092696dc66e00931cc1181a4ce1f/icons/WhatsApp.svg" alt="WhatsApp Bot" width="100">
+  
+# ♰ GHOST-OFFICIAL-V1 ♰
 
 > **An advanced, futuristic WhatsApp bot by RAK for the RAK Realm ecosystem**
 
@@ -21,7 +23,7 @@
 
 <div align="center">
   
-![Anime Ghost](https://media.tenor.com/0tGrsBfQp_YAAAAi/anime-girl.gif)
+✨ **~ Your Anime WhatsApp Companion ~** ✨
 
 </div>
 
@@ -40,16 +42,16 @@
 
 <div align="center">
 
-| Feature | Description | Emoji |
-|---------|-------------|--------|
-| **🎤 Voice Command Mode** | Control bot with voice messages using advanced speech recognition | 💬 |
-| **🛡️ Anti-Ban Protection** | Advanced safety system to prevent WhatsApp bans | 🛡️ |
-| **🎨 6 Beautiful Themes** | Customizable interface with `/theme` command | 🎨 |
-| **🌍 Multi-Language Support** | English, Urdu, Hindi, Arabic support | 🌍 |
-| **😊 Smart Sticker Replies** | Automatic sticker responses based on context | 😊 |
-| **🔌 Plugin System** | Dynamic plugin loading with `.js` files | 🔌 |
-| **⚡ Self-Healing** | Automatic crash recovery system | ⚡ |
-| **🔐 Encrypted Logs** | Secure command logging with encryption | 🔐 |
+| Feature | Description |
+|---------|-------------|
+| **🎤 Voice Command Mode** | Control bot with voice messages using advanced speech recognition |
+| **🛡️ Anti-Ban Protection** | Advanced safety system to prevent WhatsApp bans |
+| **🎨 6 Beautiful Themes** | Customizable interface with `/theme` command |
+| **🌍 Multi-Language Support** | English, Urdu, Hindi, Arabic support |
+| **😊 Smart Sticker Replies** | Automatic sticker responses based on context |
+| **🔌 Plugin System** | Dynamic plugin loading with `.js` files |
+| **⚡ Self-Healing** | Automatic crash recovery system |
+| **🔐 Encrypted Logs** | Secure command logging with encryption |
 
 </div>
 
@@ -57,14 +59,14 @@
 
 <div align="center">
   
-| Theme | Anime Preview | Description | Command |
-|-------|---------|-------------|---------|
-| **RAK** | <img src="https://via.placeholder.com/100/1a1a40/ffffff?text=RAK" width="100" /> | Default futuristic style | `/theme RAK` |
-| **GHOST** | <img src="https://via.placeholder.com/100/2d2d2d/ffffff?text=GHOST" width="100" /> | Sleek minimalist design | `/theme GHOST` |
-| **ROYAL** | <img src="https://via.placeholder.com/100/ffd700/000000?text=ROYAL" width="100" /> | Luxurious gold theme | `/theme ROYAL` |
-| **LOVE** | <img src="https://via.placeholder.com/100/ff5252/ffffff?text=LOVE" width="100" /> | Beautiful warm theme | `/theme LOVE` |
-| **NEON** | <img src="https://via.placeholder.com/100/0ff0fc/000000?text=NEON" width="100" /> | Vibrant cyberpunk style | `/theme NEON` |
-| **GALAXY** | <img src="https://via.placeholder.com/100/4e0f63/ffffff?text=GALAXY" width="100" /> | Cosmic space theme | `/theme GALAXY` |
+| Theme | Description | Command |
+|-------|-------------|---------|
+| **RAK** | Default futuristic style | `/theme RAK` |
+| **GHOST** | Sleek minimalist design | `/theme GHOST` |
+| **ROYAL** | Luxurious gold theme | `/theme ROYAL` |
+| **LOVE** | Beautiful warm theme | `/theme LOVE` |
+| **NEON** | Vibrant cyberpunk style | `/theme NEON` |
+| **GALAXY** | Cosmic space theme | `/theme GALAXY` |
 
 </div>
 
@@ -72,7 +74,7 @@
 
 <div align="center">
 
-<img src="https://via.placeholder.com/150/4e0f63/ffffff?text=SECURITY" alt="Security" width="150">
+🛡️ **Security Features**
 
 </div>
 
