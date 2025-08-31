@@ -1,8 +1,8 @@
 <!-- GHOST-OFFICIAL-V1 README -->
 <div align="center">
 
-  <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/59059d9d1a2c092696dc66e00931cc1181a4ce1f/icons/WhatsApp.svg" alt="WhatsApp Bot" width="100">
-  
+<img src="https://wallpaperaccess.com/full/3903027.jpg" alt="Anime Ghost Banner" width="600" style="border-radius: 10px;">
+
 # ♰ GHOST-OFFICIAL-V1 ♰
 
 > **An advanced, futuristic WhatsApp bot by RAK for the RAK Realm ecosystem**
