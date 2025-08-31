@@ -1,0 +1,91 @@
+﻿{
+  "name": "GHOST-OFFICIAL-V1",
+  "description": "An advanced, futuristic WhatsApp bot by RAK for the RAK Realm ecosystem.",
+  "keywords": [
+    "whatsapp",
+    "bot",
+    "automation",
+    "rak-realm"
+  ],
+  "stack": "container",
+  "env": {
+    "RAK_SESSION": {
+      "description": "Your WhatsApp session data. Keep this secure.",
+      "required": true
+    },
+    "PREFIX": {
+      "description": "Bot command prefix. Use / for the new RAK style.",
+      "required": true,
+      "value": "/"
+    },
+    "LANGUAGE": {
+      "description": "Bot language. Options: EN, UR, HI, AR.",
+      "required": false,
+      "value": "EN"
+    },
+    "SUDO_USERS": {
+      "description": "Admin users (comma-separated numbers with country code). Example: 923123456789,919876543210",
+      "required": false
+    },
+    "MODS": {
+      "description": "Moderator users (comma-separated numbers).",
+      "required": false
+    },
+    "ALLOWED_JIDS": {
+      "description": "JIDs allowed to use the bot (comma-separated). Leave empty for public.",
+      "required": false
+    },
+    "BLOCKED_JIDS": {
+      "description": "JIDs blocked from using the bot (comma-separated).",
+      "required": false
+    },
+    "LOG_LEVEL": {
+      "description": "Logging level. Options: error, warn, info, debug.",
+      "required": false,
+      "value": "info"
+    },
+    "HEROKU_APP_NAME": {
+      "description": "Required for Heroku. Your Heroku app name.",
+      "required": true
+    },
+    "HEROKU_API_KEY": {
+      "description": "Required for Heroku. Your Heroku API key.",
+      "required": true
+    },
+    "AUTO_UPDATE": {
+      "description": "Enable auto-update from GitHub. (true/false)",
+      "required": false,
+      "value": "true"
+    },
+    "ANTI_BAN": {
+      "description": "Enable anti-ban protection system. (true/false)",
+      "required": false,
+      "value": "true"
+    },
+    "VC_MODE": {
+      "description": "Default state for Voice Command Mode. (on/off)",
+      "required": false,
+      "value": "off"
+    }
+  },
+  "addons": [
+    {
+      "plan": "heroku-postgresql:hobby-dev"
+    }
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  "formation": {
+    "web": {
+      "quantity": 0,
+      "size": "free"
+    },
+    "worker": {
+      "quantity": 1,
+      "size": "free"
+    }
+  }
+}

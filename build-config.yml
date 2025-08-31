@@ -1,0 +1,66 @@
+# GHOST-OFFICIAL-V1 Build Configuration
+# RAK Realm - Exclusive for RAK
+
+version: '1.0'
+
+build:
+  target: production
+  docker:
+    file: Dockerfile
+    platform: linux/amd64
+    cache_from:
+      - node:18-bullseye-slim
+    args:
+      - NODE_ENV=production
+
+deployment:
+  platforms:
+    - name: heroku
+      enabled: true
+      requirements:
+        - procfile
+        - app.json
+        - heroku.yml
+
+    - name: bot-hosting-net
+      enabled: true
+      requirements:
+        - dockerfile
+        - docker-compose.yml
+
+  restrictions:
+    - allowed_platforms: ["heroku", "bot-hosting-net"]
+    - block_other_platforms: true
+
+services:
+  worker:
+    build: .
+    command: npm start
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+          cpus: '0.5'
+        reservations:
+          memory: 256M
+          cpus: '0.25'
+
+  # Optional: Add a web service for health checks/dashboard
+  web:
+    build: .
+    command: npm run health-server
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+
+# Build optimization
+optimization:
+  reduce_image_size: true
+  remove_dev_dependencies: true
+  cache_node_modules: true
+  security_scan: true
