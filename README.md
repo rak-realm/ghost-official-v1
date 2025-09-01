@@ -25,7 +25,6 @@
 [![GitHub Issues](https://img.shields.io/github/issues/rak-realm/ghost-official-v1?color=FF7EE3&logo=github&style=for-the-badge)](https://github.com/rak-realm/ghost-official-v1/issues)
 [![GitHub Forks](https://img.shields.io/github/forks/rak-realm/ghost-official-v1?color=79d6ff&logo=github&style=for-the-badge)](https://github.com/rak-realm/ghost-official-v1/network)
 [![GitHub Stars](https://img.shields.io/github/stars/rak-realm/ghost-official-v1?color=FFDD66&logo=github&style=for-the-badge)](https://github.com/rak-realm/ghost-official-v1/stargazers)
-[![Visitors](https://visitor-badge.glitch.me/badge?page_id=rak-realm.ghost-official-v1&style=for-the-badge&color=FF7EE3)](https://github.com/rak-realm/ghost-official-v1)
 
 </div>
 
@@ -107,10 +106,12 @@
 
 | Theme | Preview | Command | Animation |
 |-------|---------|---------|-----------|
-| **RAK** | <img src="https://via.placeholder.com/100/1a1a40/ffffff?text=RAK" width="80"> | `/theme RAK` | <img src="https://i.gifer.com/embedded/download/3QFI.gif" width="30"> |
-| **GHOST** | <img src="https://via.placeholder.com/100/2d2d2d/ffffff?text=GHOST" width="80"> | `/theme GHOST` | <img src="https://i.gifer.com/embedded/download/VAyX.gif" width="30"> |
-| **ROYAL** | <img src="https://via.placeholder.com/100/ffd700/000000?text=ROYAL" width="80"> | `/theme ROYAL` | <img src="https://i.gifer.com/embedded/download/7rWL.gif" width="30"> |
-| **NEON** | <img src="https://via.placeholder.com/100/0ff0fc/000000?text=NEON" width="80"> | `/theme NEON` | <img src="https://i.gifer.com/embedded/download/7TjX.gif" width="30"> |
+| **RAK** | <img src="https://img.shields.io/badge/Theme-RAK-1a1a40?style=for-the-badge&logo=palette" width="120"> | `/theme RAK` | <img src="https://i.gifer.com/embedded/download/3QFI.gif" width="30"> |
+| **GHOST** | <img src="https://img.shields.io/badge/Theme-GHOST-2d2d2d?style=for-the-badge&logo=palette" width="120"> | `/theme GHOST` | <img src="https://i.gifer.com/embedded/download/VAyX.gif" width="30"> |
+| **ROYAL** | <img src="https://img.shields.io/badge/Theme-ROYAL-ffd700?style=for-the-badge&logo=palette" width="120"> | `/theme ROYAL` | <img src="https://i.gifer.com/embedded/download/7rWL.gif" width="30"> |
+| **LOVE** | <img src="https://img.shields.io/badge/Theme-LOVE-ff5252?style=for-the-badge&logo=palette" width="120"> | `/theme LOVE` | <img src="https://i.gifer.com/embedded/download/3QFI.gif" width="30"> |
+| **NEON** | <img src="https://img.shields.io/badge/Theme-NEON-0ff0fc?style=for-the-badge&logo=palette" width="120"> | `/theme NEON` | <img src="https://i.gifer.com/embedded/download/7TjX.gif" width="30"> |
+| **GALAXY** | <img src="https://img.shields.io/badge/Theme-GALAXY-4e0f63?style=for-the-badge&logo=palette" width="120"> | `/theme GALAXY` | <img src="https://i.gifer.com/embedded/download/VAyX.gif" width="30"> |
 
 </div>
 
@@ -125,19 +126,15 @@
 ### ⚡ Installation
 
 ```bash
-# Clone with animated text effect
-echo "$(tput setaf 6)Cloning GHOST-OFFICIAL-V1...$(tput sgr0)"
+# Clone the repository
 git clone https://github.com/rak-realm/ghost-official-v1.git
 cd ghost-official-v1
 
 # Install dependencies
-echo "$(tput setaf 2)Installing dependencies...$(tput sgr0)"
 npm install
 
 # Configuration
-echo "$(tput setaf 3)Setting up environment...$(tput sgr0)"
 cp .env.example .env
 
 # Start the bot
-echo "$(tput setaf 5)Starting GHOST-OFFICIAL-V1...$(tput sgr0)"
 npm start
