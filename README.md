@@ -1,4 +1,4 @@
-[<!-- GHOST-OFFICIAL-V1 README -->
+<!-- GHOST-OFFICIAL-V1 README -->
 <div align="center">
 
 <!-- Animated Banner -->
@@ -140,3 +140,4 @@ cp .env.example .env
 npm start
 
 ](https://capsule-render.vercel.app/api?type=waving&color=gradient&height=150&section=header&text=♰+GHOST-OFFICIAL-V1+♰&fontSize=40&fontColor=ffffff&animation=fadeIn" alt="Animated Title)
+
