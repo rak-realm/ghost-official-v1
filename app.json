@@ -1,4 +1,4 @@
-﻿{
+{
   "name": "GHOST-OFFICIAL-V1",
   "description": "An advanced, futuristic WhatsApp bot by RAK for the RAK Realm ecosystem.",
   "keywords": [
@@ -9,13 +9,23 @@
   ],
   "stack": "container",
   "env": {
+    "BOT_NAME": {
+      "description": "Name of your bot",
+      "required": false,
+      "value": "GHOST-OFFICIAL-V1"
+    },
+    "OWNER_NAME": {
+      "description": "Bot owner name",
+      "required": false,
+      "value": "RAK"
+    },
     "RAK_SESSION": {
       "description": "Your WhatsApp session data. Keep this secure.",
-      "required": true
+      "required": false
     },
     "PREFIX": {
       "description": "Bot command prefix. Use / for the new RAK style.",
-      "required": true,
+      "required": false,
       "value": "/"
     },
     "LANGUAGE": {
@@ -27,8 +37,8 @@
       "description": "Admin users (comma-separated numbers with country code). Example: 923123456789,919876543210",
       "required": false
     },
-    "MODS": {
-      "description": "Moderator users (comma-separated numbers).",
+    "MOD_USERS": {
+      "description": "Moderator users (comma-separated numbers with country code).",
       "required": false
     },
     "ALLOWED_JIDS": {
@@ -44,14 +54,6 @@
       "required": false,
       "value": "info"
     },
-    "HEROKU_APP_NAME": {
-      "description": "Required for Heroku. Your Heroku app name.",
-      "required": true
-    },
-    "HEROKU_API_KEY": {
-      "description": "Required for Heroku. Your Heroku API key.",
-      "required": true
-    },
     "AUTO_UPDATE": {
       "description": "Enable auto-update from GitHub. (true/false)",
       "required": false,
@@ -66,6 +68,46 @@
       "description": "Default state for Voice Command Mode. (on/off)",
       "required": false,
       "value": "off"
+    },
+    "SEND_READ": {
+      "description": "Send read receipts. (true/false)",
+      "required": false,
+      "value": "false"
+    },
+    "NO_ONLINE": {
+      "description": "Hide online status. (true/false)",
+      "required": false,
+      "value": "true"
+    },
+    "WARN_COUNT": {
+      "description": "Number of warnings before action (default: 3)",
+      "required": false,
+      "value": "3"
+    },
+    "MAX_REQUESTS_PER_MINUTE": {
+      "description": "Rate limiting (default: 30)",
+      "required": false,
+      "value": "30"
+    },
+    "HEROKU_APP_NAME": {
+      "description": "Required for Heroku. Your Heroku app name.",
+      "required": true
+    },
+    "HEROKU_API_KEY": {
+      "description": "Required for Heroku. Your Heroku API key.",
+      "required": true
+    },
+    "OPENAI_KEY": {
+      "description": "OpenAI API key for AI features (optional)",
+      "required": false
+    },
+    "BRAINSHOP_KEY": {
+      "description": "Brainshop API key for AI chat (optional)",
+      "required": false
+    },
+    "REMOVEBG_KEY": {
+      "description": "Remove.bg API key for image processing (optional)",
+      "required": false
     }
   },
   "addons": [
