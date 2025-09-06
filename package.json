@@ -24,7 +24,7 @@
     "voice-commands"
   ],
   "author": "RAK <rak-realm@ghost-official.com>",
-  "license": "RAK-COMMERCIAL-LICENSE",
+  "license": "SEE LICENSE IN LICENSE.md",
   "repository": {
     "type": "git",
     "url": "https://github.com/rak-realm/ghost-official-v1.git"
@@ -38,7 +38,8 @@
     "npm": ">=8.0.0"
   },
   "dependencies": {
-    "@whiskeysockets/baileys": "github:kiuur/bails",
+    "@whiskeysockets/baileys": "^6.4.0",
+    "@hapi/boom": "^10.0.0",
     "axios": "^1.6.0",
     "chalk": "^5.3.0",
     "compromise": "^14.11.2",
@@ -96,5 +97,4 @@
     "access": "restricted",
     "registry": "https://npm.pkg.github.com"
   }
-
 }
