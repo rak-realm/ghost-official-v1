@@ -14,7 +14,7 @@ class QRSystem {
         this.qrGenerated = false;
         this.connection = null;
         this.authState = null;
-        this.connectionUpdateHandler = this.handleConnectionUpdate.bind(this); // Bind the handler for proper removal
+        this.connectionUpdateHandler = this.handleConnectionUpdate.bind(this);
     }
 
     async initialize() {
@@ -58,7 +58,7 @@ class QRSystem {
 
         if (connection === 'close') {
             console.log(chalk.yellow.bold('⚠️ Connection closed. Reinitializing...'));
-            this.reinitialize(); // Call reinitialize without await to avoid blocking
+            this.reinitialize();
         }
     }
 
@@ -75,14 +75,11 @@ class QRSystem {
             this.connection = makeWASocket({
                 auth: this.authState.state,
                 printQRInTerminal: true,
-                logger: { level: 'silent' }, // Reduced logging for security
+                logger: { level: 'silent' },
                 browser: ['GHOST-OFFICIAL-V1', 'Chrome', '1.0.0']
             });
 
-            // Add the event listener and store a reference for removal
             this.connection.ev.on('connection.update', this.connectionUpdateHandler);
-
-            // Save credentials when updated
             this.connection.ev.on('creds.update', this.authState.saveCreds);
 
             return true;
@@ -95,7 +92,6 @@ class QRSystem {
 
     async reinitialize() {
         try {
-            // Clean up old connection: remove listeners and end connection
             if (this.connection) {
                 this.connection.ev.off('connection.update', this.connectionUpdateHandler);
                 this.connection.ev.off('creds.update', this.authState.saveCreds);
@@ -103,11 +99,8 @@ class QRSystem {
                 this.connection = null;
             }
 
-            // Reinitialize auth state
             this.authState = await useMultiFileAuthState(this.sessionDir);
             this.qrGenerated = false;
-
-            // Generate new QR
             await this.generateQR();
 
         } catch (error) {
@@ -121,10 +114,8 @@ class QRSystem {
             await fs.ensureDir(backupDir);
             
             const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-            const backupPath = path.join(backupDir, `session-backup-${timestamp}.zip`);
+            const backupPath = path.join(backupDir, `session-backup-${timestamp}`);
             
-            // Create backup - Using archiver would require installing the 'archiver' package
-            // For now, we'll just copy the session directory
             await fs.copy(this.sessionDir, backupPath);
             console.log(chalk.blue.bold('📦 Created session backup at: ' + backupPath));
             
@@ -142,11 +133,7 @@ class QRSystem {
             }
 
             console.log(chalk.blue.bold('🔄 Restoring session from backup...'));
-            
-            // Clear current session
             await fs.emptyDir(this.sessionDir);
-            
-            // Restore from backup - copy the backup to session directory
             await fs.copy(backupPath, this.sessionDir);
             console.log(chalk.green.bold('✅ Session restored successfully'));
             
@@ -182,9 +169,7 @@ class QRSystem {
     }
 }
 
-// Export singleton instance
 const qrSystem = new QRSystem();
-
 module.exports = {
     QRSystem,
     instance: qrSystem
