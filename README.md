@@ -1,25 +1,26 @@
 <!-- GHOST-OFFICIAL-V1 README -->
 <div align="center">
 
-<!-- Animated Banner -->
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=150&section=header&text=♰+GHOST-OFFICIAL-V1+♰&fontSize=40&fontColor=ffffff&animation=fadeIn" alt="Animated Title">
+<!-- Banner -->
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=150&section=header&text=♰+GHOST-OFFICIAL-V1+♰&fontSize=40&fontColor=ffffff" alt="Banner">
 
-<!-- Subtitle with animation -->
+<!-- Subtitle -->
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=20&duration=2500&pause=500&color=FF7EE3&center=true&vCenter=true&width=500&lines=Advanced+WhatsApp+Automation+Solution;Powered+by+RAK+Realm+Ecosystem;Futuristic+AI+Technology" alt="Animated Subtitle">
+  <strong>Advanced WhatsApp Automation Solution</strong><br>
+  <em>Powered by RAK Realm Ecosystem • Futuristic AI Technology</em>
 </p>
 
-<!-- Animated Badges -->
+<!-- Badges -->
 <div align="center">
 
-![Version](https://img.shields.io/badge/Version-1.0.0-22DDFF?style=for-the-badge&logo=azurepipelines&logoColor=white)
-![Node](https://img.shields.io/badge/Node.js-18.x-68D063?style=for-the-badge&logo=nodedotjs&logoColor=white)
-![WhatsApp](https://img.shields.io/badge/WhatsApp-Bot-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)
-![License](https://img.shields.io/badge/License-RAK_Commercial-FF7EE3?style=for-the-badge&logo=law&logoColor=white)
+![Version](https://img.shields.io/badge/Version-1.0.0-22DDFF?style=for-the-badge&logo=azurepipelines)
+![Node](https://img.shields.io/badge/Node.js-18.x-68D063?style=for-the-badge&logo=nodedotjs)
+![WhatsApp](https://img.shields.io/badge/WhatsApp-Bot-25D366?style=for-the-badge&logo=whatsapp)
+![License](https://img.shields.io/badge/License-RAK_Commercial-FF7EE3?style=for-the-badge&logo=law)
 
 </div>
 
-<!-- Stats with animations -->
+<!-- Stats -->
 <div align="center">
 
 [![GitHub Issues](https://img.shields.io/github/issues/rak-realm/ghost-official-v1?color=FF7EE3&logo=github&style=for-the-badge)](https://github.com/rak-realm/ghost-official-v1/issues)
@@ -28,92 +29,48 @@
 
 </div>
 
-<!-- Animated Divider -->
 <br>
-<img src="https://raw.githubusercontent.com/AnderMendoza/AnderMendoza/refs/heads/main/assets/line-neon.gif" width="100%">
+<img src="https://raw.githubusercontent.com/AnderMendoza/AnderMendoza/main/assets/line-neon.gif" width="100%">
 <br>
-
-<!-- Anime GIF -->
-<div align="center">
-  <img src="https://giffiles.alphacoders.com/183/183325.gif" alt="Anime GIF" width="300">
-</div>
 
 </div>
 
 ## 📑 Table of Contents
 
-<!-- Animated TOC -->
-<p align="center">
-  <a href="#-introduction">🌌 Introduction</a> •
-  <a href="#-features">✨ Features</a> •
-  <a href="#-quick-start">🚀 Quick Start</a> •
-  <a href="#-demo">🎬 Demo</a> •
-  <a href="#-configuration">⚙️ Configuration</a> •
-  <a href="#-themes">🎨 Themes</a> •
-  <a href="#-plugins">🔌 Plugins</a> •
-  <a href="#-contributing">🤝 Contributing</a> •
-  <a href="#-license">📄 License</a>
-</p>
+- [🌌 Introduction](#-introduction)
+- [✨ Features](#-features)
+- [🚀 Quick Start](#-quick-start)
+- [⚙️ Configuration](#-configuration)
+- [🎨 Themes](#-themes)
+- [🔌 Plugins](#-plugins)
+- [🤝 Contributing](#-contributing)
+- [📄 License](#-license)
 
 ## 🌌 Introduction
 
-<div align="center">
-
-<img src="https://i.gifer.com/origin/2d/2d6c13c4cb8e29bf70d2e22b5f2b71ba_w200.gif" width="100" align="right">
-<img src="https://i.gifer.com/origin/2d/2d6c13c4cb8e29bf70d2e22b5f2b71ba_w200.gif" width="100" align="left">
-
-</div>
-
-<p align="center">
-  <b>GHOST-OFFICIAL-V1</b> is a next-generation WhatsApp automation solution designed for reliability, security, and performance. Built with cutting-edge technology, it offers an unparalleled messaging experience with advanced AI capabilities.
-</p>
+**GHOST-OFFICIAL-V1** is a next-generation WhatsApp automation solution designed for reliability, security, and performance. Built with cutting-edge technology, it offers an unparalleled messaging experience with advanced AI capabilities.
 
 ## ✨ Features
 
 ### 🚀 Core Capabilities
 
-<!-- Feature cards with animations -->
-<table>
-  <tr>
-    <td align="center" width="50%">
-      <img src="https://i.gifer.com/embedded/download/7TjX.gif" width="80">
-      <h3>Voice Command Mode</h3>
-      <p>Advanced voice recognition with AI-powered processing</p>
-    </td>
-    <td align="center" width="50%">
-      <img src="https://i.gifer.com/embedded/download/3QFI.gif" width="80">
-      <h3>Anti-Ban Protection</h3>
-      <p>Multi-layered security to prevent detection</p>
-    </td>
-  </tr>
-  <tr>
-    <td align="center" width="50%">
-      <img src="https://i.gifer.com/embedded/download/VAyX.gif" width="80">
-      <h3>Smart AI Responses</h3>
-      <p>Context-aware messaging with NLP</p>
-    </td>
-    <td align="center" width="50%">
-      <img src="https://i.gifer.com/embedded/download/7rWL.gif" width="80">
-      <h3>Self-Healing System</h3>
-      <p>Automatic recovery from crashes</p>
-    </td>
-  </tr>
-</table>
+- **Voice Command Mode**: Advanced voice recognition with AI-powered processing
+- **Anti-Ban Protection**: Multi-layered security to prevent detection
+- **Smart AI Responses**: Context-aware messaging with NLP
+- **Self-Healing System**: Automatic recovery from crashes
+- **Multi-Language Support**: English, Urdu, Hindi, and Arabic
+- **Theme System**: Customizable appearance with multiple themes
 
 ### 🎨 Theme System
 
-<div align="center">
-
-| Theme | Preview | Command | Animation |
-|-------|---------|---------|-----------|
-| **RAK** | <img src="https://img.shields.io/badge/Theme-RAK-1a1a40?style=for-the-badge&logo=palette" width="120"> | `/theme RAK` | <img src="https://i.gifer.com/embedded/download/3QFI.gif" width="30"> |
-| **GHOST** | <img src="https://img.shields.io/badge/Theme-GHOST-2d2d2d?style=for-the-badge&logo=palette" width="120"> | `/theme GHOST` | <img src="https://i.gifer.com/embedded/download/VAyX.gif" width="30"> |
-| **ROYAL** | <img src="https://img.shields.io/badge/Theme-ROYAL-ffd700?style=for-the-badge&logo=palette" width="120"> | `/theme ROYAL` | <img src="https://i.gifer.com/embedded/download/7rWL.gif" width="30"> |
-| **LOVE** | <img src="https://img.shields.io/badge/Theme-LOVE-ff5252?style=for-the-badge&logo=palette" width="120"> | `/theme LOVE` | <img src="https://i.gifer.com/embedded/download/3QFI.gif" width="30"> |
-| **NEON** | <img src="https://img.shields.io/badge/Theme-NEON-0ff0fc?style=for-the-badge&logo=palette" width="120"> | `/theme NEON` | <img src="https://i.gifer.com/embedded/download/7TjX.gif" width="30"> |
-| **GALAXY** | <img src="https://img.shields.io/badge/Theme-GALAXY-4e0f63?style=for-the-badge&logo=palette" width="120"> | `/theme GALAXY` | <img src="https://i.gifer.com/embedded/download/VAyX.gif" width="30"> |
-
-</div>
+| Theme | Command | Description |
+|-------|---------|-------------|
+| **RAK** | `/theme RAK` | Default RAK Realm theme |
+| **GHOST** | `/theme GHOST` | Dark ghost theme |
+| **ROYAL** | `/theme ROYAL` | Royal gold theme |
+| **LOVE** | `/theme LOVE` | Romantic pink theme |
+| **NEON** | `/theme NEON` | Neon blue theme |
+| **GALAXY** | `/theme GALAXY` | Space galaxy theme |
 
 ## 🚀 Quick Start
 
@@ -133,11 +90,11 @@ cd ghost-official-v1
 # Install dependencies
 npm install
 
-# Configuration
+# Copy environment file
 cp .env.example .env
+
+# Edit environment variables
+nano .env  # or use your favorite editor
 
 # Start the bot
 npm start
-
-](https://capsule-render.vercel.app/api?type=waving&color=gradient&height=150&section=header&text=♰+GHOST-OFFICIAL-V1+♰&fontSize=40&fontColor=ffffff&animation=fadeIn" alt="Animated Title)
-
