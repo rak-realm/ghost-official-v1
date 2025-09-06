@@ -1,22 +1,38 @@
-﻿// GHOST-OFFICIAL-V1 Main Core
+// GHOST-OFFICIAL-V1 Main Core
 // RAK Realm - Copyright RAK - Exclusive Ownership
 
 const { Boom } = require('@hapi/boom');
-const { DEFAULT_CONNECTION_CONFIG, makeWASocket, useMultiFileAuthState } = require('@whiskeysockets/baileys');
-const { Sequelize } = require('sequelize');
+const { makeWASocket, useMultiFileAuthState } = require('@whiskeysockets/baileys');
 const chalk = require('chalk');
-const fs = require('fs');
-const path = require('path');
 
 // Import Config
 const config = require('./config');
 
-// Import Core Modules
-const { SecuritySystem } = require('./core/security');
-const { ThemeManager } = require('./core/theme');
-const { CommandHandler } = require('./core/handler');
-const { Database } = require('./core/database');
-const { Logger, encryptedLogs } = require('./utils/logger');
+// Placeholder classes for missing modules
+class SecuritySystem {
+    async initialize() {}
+    async scanMessage() { return { safe: true, reason: '' }; }
+}
+class ThemeManager {
+    async loadThemes() {}
+}
+class CommandHandler {
+    async loadCommands() {}
+    async processMessage() {}
+}
+class Database {
+    async connect() { console.log('Database connected (placeholder)'); }
+    async disconnect() { console.log('Database disconnected (placeholder)'); }
+}
+class Logger {
+    constructor(level) { this.level = level; }
+    system(msg) { console.log(chalk.blue(msg)); }
+    info(msg) { console.log(chalk.green(msg)); }
+    success(msg) { console.log(chalk.green(msg)); }
+    warn(msg) { console.log(chalk.yellow(msg)); }
+    error(msg) { console.log(chalk.red(msg)); }
+    debug(msg) { console.log(chalk.gray(msg)); }
+}
 
 class GHOSTOFFICIALV1 {
     constructor() {
@@ -28,10 +44,10 @@ class GHOSTOFFICIALV1 {
         
         // Initialize Core Systems
         this.logger = new Logger(config.LOG_LEVEL);
-        this.security = new SecuritySystem(this);
-        this.themeManager = new ThemeManager(this);
-        this.commandHandler = new CommandHandler(this);
-        this.database = new Database(this);
+        this.security = new SecuritySystem();
+        this.themeManager = new ThemeManager();
+        this.commandHandler = new CommandHandler();
+        this.database = new Database();
         
         this.logger.system(`Initializing ${this.botName} for ${this.owner}`);
     }
@@ -40,32 +56,25 @@ class GHOSTOFFICIALV1 {
         try {
             this.logger.info('Starting RAK Realm initialization...');
             
-            // Step 1: Initialize Database
             await this.database.connect();
             this.logger.success('Database initialized successfully');
             
-            // Step 2: Load Themes
             await this.themeManager.loadThemes();
             this.logger.success('Themes loaded successfully');
             
-            // Step 3: Initialize Security System
             await this.security.initialize();
             this.logger.success('Security system initialized');
             
-            // Step 4: Establish WhatsApp Connection
             await this.connectToWhatsApp();
             
-            // Step 5: Load Commands and Plugins
             await this.commandHandler.loadCommands();
             this.logger.success('Commands loaded successfully');
             
-            // Step 6: Start Background Services
             await this.startBackgroundServices();
             
             this.isConnected = true;
             this.logger.success(`${this.botName} is now operational and ready`);
             
-            // Send welcome message to owner
             await this.sendStartupNotification();
             
         } catch (error) {
@@ -82,7 +91,7 @@ class GHOSTOFFICIALV1 {
             this.sock = makeWASocket({
                 auth: state,
                 printQRInTerminal: true,
-                logger: this.logger.pinoLogger,
+                logger: { level: 'warn' },
                 browser: ['GHOST-OFFICIAL-V1', 'Chrome', '1.0.0']
             });
             
@@ -121,14 +130,12 @@ class GHOSTOFFICIALV1 {
             const message = messages[0];
             if (!message.message) return;
             
-            // Security Check: Anti-Ban Protection
             const securityCheck = await this.security.scanMessage(message);
             if (!securityCheck.safe) {
                 this.logger.warn(`Blocked potentially risky message: ${securityCheck.reason}`);
                 return;
             }
             
-            // Process Message through Command Handler
             await this.commandHandler.processMessage(message, this.sock);
             
         } catch (error) {
@@ -137,19 +144,16 @@ class GHOSTOFFICIALV1 {
     }
 
     async startBackgroundServices() {
-        // Auto-update service
         if (config.AUTO_UPDATE) {
-            setInterval(() => this.checkForUpdates(), 3600000); // Check every hour
+            setInterval(() => this.checkForUpdates(), 3600000);
         }
         
-        // Self-healing monitor
-        setInterval(() => this.healthCheck(), 300000); // Check every 5 minutes
+        setInterval(() => this.healthCheck(), 300000);
         
         this.logger.info('Background services started');
     }
 
     async checkForUpdates() {
-        // Implementation for auto-update from GitHub
         this.logger.debug('Checking for updates...');
     }
 
@@ -161,7 +165,6 @@ class GHOSTOFFICIALV1 {
     }
 
     async sendStartupNotification() {
-        // Send notification to owner that bot is online
         const startupMessage = 
             `♰ ${this.botName} Activated ♰\n` +
             `✅ Version: ${this.version}\n` +
@@ -171,28 +174,28 @@ class GHOSTOFFICIALV1 {
             `✅ Status: Operational\n\n` +
             `✦ Powered by RAK Realm ✦`;
         
-        // Implementation to send message to owner's number
         this.logger.system(startupMessage);
     }
 
-    // Graceful shutdown
     async shutdown() {
         this.logger.info('Shutting down GHOST-OFFICIAL-V1...');
         await this.database.disconnect();
+        if (this.sock) {
+            await this.sock.end();
+        }
         process.exit(0);
     }
 }
 
-// Handle process events
-process.on('SIGINT', () => new GHOSTOFFICIALV1().shutdown());
-process.on('SIGTERM', () => new GHOSTOFFICIALV1().shutdown());
+const bot = new GHOSTOFFICIALV1();
+
+process.on('SIGINT', () => bot.shutdown());
+process.on('SIGTERM', () => bot.shutdown());
 process.on('uncaughtException', (error) => {
-    new Logger('error').error(`Uncaught Exception: ${error.message}`);
+    console.error(`Uncaught Exception: ${error.message}`);
     process.exit(1);
 });
 
-// Start the bot
-const bot = new GHOSTOFFICIALV1();
 bot.initialize().catch(console.error);
 
 module.exports = GHOSTOFFICIALV1;
