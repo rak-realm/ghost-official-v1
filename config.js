@@ -1,7 +1,7 @@
-﻿// GHOST-OFFICIAL-V1 Configuration
+// GHOST-OFFICIAL-V1 Configuration
 // RAK Realm - Copyright RAK
 
-const fs = require('fs');
+const fs = require('fs-extra');
 const path = require('path');
 
 // Load environment variables from .env file if it exists
@@ -16,6 +16,8 @@ const toBool = (value, defaultValue = false) => {
     if (typeof value === 'string') {
         if (value.toLowerCase() === 'true') return true;
         if (value.toLowerCase() === 'false') return false;
+        if (value === '1') return true;
+        if (value === '0') return false;
     }
     return defaultValue;
 };
@@ -23,7 +25,15 @@ const toBool = (value, defaultValue = false) => {
 // Utility function to convert string to array
 const toArray = (value, separator = ',') => {
     if (!value) return [];
+    if (Array.isArray(value)) return value;
     return value.split(separator).map(item => item.trim()).filter(item => item);
+};
+
+// Utility function to get number with default
+const toNumber = (value, defaultValue = 0) => {
+    if (value === undefined || value === null) return defaultValue;
+    const num = parseInt(value);
+    return isNaN(num) ? defaultValue : num;
 };
 
 // Main Configuration
@@ -63,15 +73,26 @@ module.exports = {
     LOG_LEVEL: process.env.LOG_LEVEL || "info",
     ENCRYPT_LOGS: toBool(process.env.ENCRYPT_LOGS, true),
 
-    // External APIs (will be stored in Ghost Vault)
+    // External APIs
     BRAINSHOP_KEY: process.env.BRAINSHOP_KEY || "",
     REMOVEBG_KEY: process.env.REMOVEBG_KEY || "",
     OPENAI_KEY: process.env.OPENAI_KEY || "",
 
     // Safety Settings
-    WARN_COUNT: parseInt(process.env.WARN_COUNT) || 3,
-    MAX_REQUESTS_PER_MINUTE: parseInt(process.env.MAX_REQUESTS_PER_MINUTE) || 30,
+    WARN_COUNT: toNumber(process.env.WARN_COUNT, 3),
+    MAX_REQUESTS_PER_MINUTE: toNumber(process.env.MAX_REQUESTS_PER_MINUTE, 30),
 
     // Theme System
-    DEFAULT_THEME: process.env.DEFAULT_THEME || "RAK"
+    DEFAULT_THEME: process.env.DEFAULT_THEME || "RAK",
+
+    // Server Settings
+    PORT: toNumber(process.env.PORT, 3000),
+    HOST: process.env.HOST || "0.0.0.0"
+};
+
+// Export utility functions for external use
+module.exports.utils = {
+    toBool,
+    toArray,
+    toNumber
 };
