@@ -1,4 +1,4 @@
-﻿// GHOST-OFFICIAL-V1 QR System
+// GHOST-OFFICIAL-V1 QR System
 // RAK Realm - Copyright RAK
 
 const { default: makeWASocket, useMultiFileAuthState } = require('@whiskeysockets/baileys');
@@ -14,6 +14,7 @@ class QRSystem {
         this.qrGenerated = false;
         this.connection = null;
         this.authState = null;
+        this.connectionUpdateHandler = this.handleConnectionUpdate.bind(this); // Bind the handler for proper removal
     }
 
     async initialize() {
@@ -34,6 +35,33 @@ class QRSystem {
         }
     }
 
+    handleConnectionUpdate(update) {
+        const { connection, qr } = update;
+
+        if (qr && !this.qrGenerated) {
+            this.qrGenerated = true;
+            
+            // Generate QR in terminal
+            qrcode.generate(qr, { small: true });
+            
+            console.log(chalk.cyan.bold('\n🔒 Security Notice:'));
+            console.log(chalk.gray('• This QR code expires in 60 seconds'));
+            console.log(chalk.gray('• Never share your QR code with anyone'));
+            console.log(chalk.gray('• Scan only with your personal device\n'));
+        }
+
+        if (connection === 'open') {
+            console.log(chalk.green.bold('✅ Successfully connected to WhatsApp!'));
+            console.log(chalk.gray('→ Session secured and encrypted'));
+            this.qrGenerated = false;
+        }
+
+        if (connection === 'close') {
+            console.log(chalk.yellow.bold('⚠️ Connection closed. Reinitializing...'));
+            this.reinitialize(); // Call reinitialize without await to avoid blocking
+        }
+    }
+
     async generateQR() {
         try {
             if (this.qrGenerated) {
@@ -51,33 +79,8 @@ class QRSystem {
                 browser: ['GHOST-OFFICIAL-V1', 'Chrome', '1.0.0']
             });
 
-            // Handle QR generation
-            this.connection.ev.on('connection.update', async (update) => {
-                const { connection, qr } = update;
-
-                if (qr && !this.qrGenerated) {
-                    this.qrGenerated = true;
-                    
-                    // Generate QR in terminal
-                    qrcode.generate(qr, { small: true });
-                    
-                    console.log(chalk.cyan.bold('\n🔒 Security Notice:'));
-                    console.log(chalk.gray('• This QR code expires in 60 seconds'));
-                    console.log(chalk.gray('• Never share your QR code with anyone'));
-                    console.log(chalk.gray('• Scan only with your personal device\n'));
-                }
-
-                if (connection === 'open') {
-                    console.log(chalk.green.bold('✅ Successfully connected to WhatsApp!'));
-                    console.log(chalk.gray('→ Session secured and encrypted'));
-                    this.qrGenerated = false;
-                }
-
-                if (connection === 'close') {
-                    console.log(chalk.yellow.bold('⚠️ Connection closed. Reinitializing...'));
-                    await this.reinitialize();
-                }
-            });
+            // Add the event listener and store a reference for removal
+            this.connection.ev.on('connection.update', this.connectionUpdateHandler);
 
             // Save credentials when updated
             this.connection.ev.on('creds.update', this.authState.saveCreds);
@@ -92,9 +95,11 @@ class QRSystem {
 
     async reinitialize() {
         try {
-            // Clean up old connection
+            // Clean up old connection: remove listeners and end connection
             if (this.connection) {
-                this.connection.end();
+                this.connection.ev.off('connection.update', this.connectionUpdateHandler);
+                this.connection.ev.off('creds.update', this.authState.saveCreds);
+                await this.connection.end();
                 this.connection = null;
             }
 
@@ -118,8 +123,10 @@ class QRSystem {
             const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
             const backupPath = path.join(backupDir, `session-backup-${timestamp}.zip`);
             
-            // Create backup (implementation would use archiver or similar)
-            console.log(chalk.blue.bold('📦 Creating session backup...'));
+            // Create backup - Using archiver would require installing the 'archiver' package
+            // For now, we'll just copy the session directory
+            await fs.copy(this.sessionDir, backupPath);
+            console.log(chalk.blue.bold('📦 Created session backup at: ' + backupPath));
             
             return backupPath;
         } catch (error) {
@@ -139,7 +146,8 @@ class QRSystem {
             // Clear current session
             await fs.emptyDir(this.sessionDir);
             
-            // Restore from backup (implementation would extract files)
+            // Restore from backup - copy the backup to session directory
+            await fs.copy(backupPath, this.sessionDir);
             console.log(chalk.green.bold('✅ Session restored successfully'));
             
             return true;
